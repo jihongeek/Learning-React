@@ -1,7 +1,8 @@
 import "./Body.css";
 
-const Body = () => {
-    let language = "korean";
+const Body = (props) => {
+    // 구조분해할당을 이용한 props 값들을 쉽게 쓰기
+    const {language,emoji} = props
     // 조건문을 이용한 조건부 렌더링
     if (language === "korean")
     {
@@ -11,6 +12,7 @@ const Body = () => {
             <div className = "body" style = {{color : "green"}}>
                 <h1>My Body 🦴</h1>
                 <p>이 리액트 앱의 '몸뚱아리'랍니다.</p>    
+                <p>{emoji}</p>
             </div>
         )
     }
@@ -20,6 +22,7 @@ const Body = () => {
             <div className = "body" style = {{color : "crimson"}}>
                 <h1>My Body 🦴</h1>
                 <p>Here is 'BODY' of this React app.</p>    
+                <p>{emoji}</p>
             </div>
         )
 
