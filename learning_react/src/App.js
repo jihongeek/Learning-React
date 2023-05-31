@@ -3,6 +3,19 @@ import Header from './component/Header';
 import Body from './component/Body';
 import Footer from './component/Footer';
 
+// MyButton 컴포넌트가 눌렸을 때 이벤트를 처리할 이벤트 핸들러 
+const handleOnClick = (event) => 
+{
+  alert(event.target.name);
+}
+
+// name을 Props를 이용해서 전달
+const MyButton = ({name}) => {
+  return (
+    // 이벤트 핸들러와 연결
+    <button name = {name} onClick = {handleOnClick}> {name} </button>
+  )
+}
 
 function App() {
   const appDescription = {
@@ -11,7 +24,7 @@ function App() {
   }
   let bodyProps = {
     language : "english",
-    emoji : "🍟"
+    emoji : "🍟",
   }
   // JSX에서는 모든 태그를 큰 최상위 태그로 감싸야 함
   return (
@@ -24,7 +37,11 @@ function App() {
       Header 컴포넌트를 App 컴포넌트의 자식 컴포넌트로 '배치' */}
       <Header/>
       {/* 스프레드 연산자를 이용해서 Props를 편하게 전달하기 */}
-      <Body {...bodyProps}/>
+      <Body {...bodyProps}>
+      {/* MyButton 컴포넌트를 Body 컴포넌트의 자식 컴포넌트로 배치해서 Props으로 넘겨주기*/}
+        <MyButton name = {"first button"}/>
+        <MyButton name = {"second button"}/>
+      </Body>
       <Footer/> 
     </div>
   );

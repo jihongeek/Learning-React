@@ -1,8 +1,9 @@
 import "./Body.css";
 
-const Body = (props) => {
-    // 구조분해할당을 이용한 props 값들을 쉽게 쓰기
-    const {language,emoji} = props
+// 구조분해할당을 함수컴포넌트의 매개변수에 이용해 Props를 쉽게 사용하기
+// App 컴포넌트에서 배치한 자식 컴포넌트를 children 프로퍼티로 불러오기
+const Body = ({language,emoji,children}) => {
+    console.log(children);
     // 조건문을 이용한 조건부 렌더링
     if (language === "korean")
     {
@@ -13,6 +14,7 @@ const Body = (props) => {
                 <h1>My Body 🦴</h1>
                 <p>이 리액트 앱의 '몸뚱아리'랍니다.</p>    
                 <p>{emoji}</p>
+                {children}
             </div>
         )
     }
@@ -23,10 +25,13 @@ const Body = (props) => {
                 <h1>My Body 🦴</h1>
                 <p>Here is 'BODY' of this React app.</p>    
                 <p>{emoji}</p>
+                {children}
             </div>
         )
 
     }
 }
-
+Body.defaultProps = {
+    emoji : "✈️"
+}
 export default Body;
