@@ -15,6 +15,8 @@ const MyButton = ({name}) => {
     // 이벤트 핸들러와 연결
     <button name = {name} onClick = {handleOnClick}> {name} </button>
   )
+
+  
 }
 
 function App() {
@@ -22,9 +24,8 @@ function App() {
     fisrtLine : `이 React 앱은 곤충🐜이 머리-가슴-배로 이루어져 있듯이,`,
     secondLine : `Header💀-Body🦴-Footer🦶로 이루어져 있습니다.` 
   }
-  let bodyProps = {
-    language : "english",
-    emoji : "🍟",
+  let bodyProps = { 
+    emoji : "🍟"
   }
   // JSX에서는 모든 태그를 큰 최상위 태그로 감싸야 함
   return (
