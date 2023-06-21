@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Header/>
       <WorkEditor/>      
-      <div>WorkList</div>
+      <WorkList/>
     </div>
   );
 }
