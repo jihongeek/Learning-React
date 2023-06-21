@@ -1,11 +1,12 @@
 import "./App.css";
 import Header from "./component/Header";
+import WorkEditor from "./component/WorkEditor";
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <div>WorkEditor</div>
+      <WorkEditor/>      
       <div>WorkList</div>
     </div>
   );
