@@ -1,0 +1,17 @@
+.WorkItem {
+    display: flex;
+    gap:20px;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.WorkItem button {
+    cursor: pointer;
+    width: 80px;
+    border: none;
+    background-color: rgb(220,20,23);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px
+}
