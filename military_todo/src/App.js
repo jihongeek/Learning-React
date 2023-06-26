@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./component/Header";
 import WorkEditor from "./component/WorkEditor";
 import WorkList from "./component/WorkList"; 
-import {useState} from "react"
+import {useState, useRef} from "react"
 
 const mockWork = [
   {
@@ -30,12 +30,25 @@ const mockWork = [
     createDate : new Date().getTime()
   }
 ]
+
+
 function App() {
+  const idRef = useRef(4);
   const [work,setWork] = useState(mockWork);
+  const onCreate = (workName) => {
+    const newItem = {
+      id : idRef.current,
+      name : workName,
+      isDone : false,
+      createdDate : new Date().getTime()
+    }
+    setWork([...work,newItem]);
+    idRef.current += 1;
+  }
   return (
     <div className="App">
       <Header/>
-      <WorkEditor/>      
+      <WorkEditor onCreate = {onCreate}/>      
       <WorkList/>
     </div>
   );
