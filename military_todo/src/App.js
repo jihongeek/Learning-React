@@ -9,19 +9,19 @@ const mockWork = [
     id : 0,
     name : "전방에 힘찬 함성 3초간 실시",
     isDone: false,
-    createDate : new Date().getTime()
+    createdDate : new Date().getTime()
   },
   {
     id : 1,
     name : "애국가 제창",
     isDone: false,
-    createDate : new Date().getTime()
+    createdDate : new Date().getTime()
   },
   {
     id : 2,
     name : "조국기도문 낭독",
     isDone: false,
-    createDate : new Date().getTime()
+    createdDate : new Date().getTime()
   }
 ]
 
@@ -43,7 +43,7 @@ function App() {
     <div className="App">
       <Header/>
       <WorkEditor onCreate = {onCreate}/>      
-      <WorkList work = {mockWork}/>
+      <WorkList work = {work}/>
     </div>
   );
 }
