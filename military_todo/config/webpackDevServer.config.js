@@ -70,14 +70,7 @@ module.exports = function (proxy, allowedHost) {
       },
     },
     client: {
-      webSocketURL: {
-        // Enable custom sockjs pathname for websocket connection to hot reloading server.
-        // Enable custom sockjs hostname, pathname and port for websocket connection
-        // to hot reloading server.
-        hostname: sockHost,
-        pathname: sockPath,
-        port: sockPort,
-      },
+      webSocketURL: "ws://0.0.0.0:80/ws",
       overlay: {
         errors: true,
         warnings: false,
