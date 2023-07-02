@@ -1,6 +1,5 @@
 import "./Header.css";
 const getDischargeDday = (nowDate,dischargeDate) => {
-    console.log(dischargeDate);
     return Math.floor((dischargeDate.valueOf() - nowDate.valueOf()) / (1000 * 60 * 60 * 24))
 }
 
