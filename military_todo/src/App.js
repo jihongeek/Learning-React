@@ -22,18 +22,12 @@ const mockWork = [
     name : "조국기도문 낭독",
     isDone: false,
     createDate : new Date().getTime()
-  },
-  {
-    id : 3,
-    name : "국군도수체조 실시",
-    isDone: false,
-    createDate : new Date().getTime()
   }
 ]
 
 
 function App() {
-  const idRef = useRef(4);
+  const idRef = useRef(3);
   const [work,setWork] = useState(mockWork);
   const onCreate = (workName) => {
     const newItem = {
@@ -43,13 +37,13 @@ function App() {
       createdDate : new Date().getTime()
     }
     setWork([...work,newItem]);
-    idRef.current += 1;
+    idRef.current += 1; 
   }
   return (
     <div className="App">
       <Header/>
       <WorkEditor onCreate = {onCreate}/>      
-      <WorkList/>
+      <WorkList work = {mockWork}/>
     </div>
   );
 }
