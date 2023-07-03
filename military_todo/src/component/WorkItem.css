@@ -3,6 +3,20 @@
     gap:20px;
     padding-bottom: 20px;
     align-items: center;
+    border-bottom: 1px solid rgb(240,240,240);
+}
+
+.WorkItem .checkbox_col {
+    width: 20px;
+}
+
+.WorkItem .title_col {
+    flex: 1;
+}
+
+.WorkItem .date_col {
+    font-size: 14px;
+    color : gray;
 }
 
 .WorkItem button {
