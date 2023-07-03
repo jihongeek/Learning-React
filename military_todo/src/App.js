@@ -29,6 +29,31 @@ const mockWork = [
 function App() {
   const idRef = useRef(3);
   const [work,setWork] = useState(mockWork);
+  const onDelete = (workId) => {
+    let tempWork = [];
+    let isFound = false;
+    for (let i = 0; i < work.length; i++)
+    {
+      if (workId === work[i].id)
+      {
+        isFound = true;
+        continue; 
+      }
+      if (isFound === true)
+      {
+        tempWork.push({
+          id : work[i].id - 1,
+          name : work[i].name,
+          createdDate : work[i].createdDate
+        })
+      } else {
+        tempWork.push(work[i]);
+      }
+
+    }
+    setWork(tempWork);
+    idRef.current -= 1;
+  } 
   const onCreate = (workName) => {
     const newItem = {
       id : idRef.current,
@@ -43,7 +68,7 @@ function App() {
     <div className="App">
       <Header/>
       <WorkEditor onCreate = {onCreate}/>      
-      <WorkList work = {work}/>
+      <WorkList work = {work} onDelete = {onDelete}/>
     </div>
   );
 }
