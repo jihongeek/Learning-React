@@ -8,7 +8,7 @@ const WorkList = ({work,onDelete}) => {
           <input className = "searchbar" placeholder = "작업 검색" ></input>
           <div className = "list_wrapper">
             {work.map((it) => (
-              <WorkItem {...it} onDelete={onDelete}/>
+              <WorkItem key = {it.id} {...it} onDelete={onDelete}/>
             ))}
           </div>
       </div>  
