@@ -1,12 +1,18 @@
-import {useState} from "react"
+import {useState,useRef} from "react"
 import "./WorkEditor.css"
 
 const WorkEditor = ({onCreate}) => {
     const [name, setName] = useState("");
+    const inputRef = useRef();
     const onNameChange = (e) => {
         setName(e.target.value);
     }
     const onSubmit = () => {
+        if (name === "")
+        {
+            inputRef.current.focus();
+            return;
+        }
         onCreate(name);
     }
 
@@ -15,6 +21,7 @@ const WorkEditor = ({onCreate}) => {
             <p>새로운 작업 작성하기!</p>
             <div className = "editor_wrapper">
                 <input
+                    ref = {inputRef}
                     value = {name} 
                     onChange={onNameChange}
                     placeholder="하.. 새로운 작업..ㅠ"
