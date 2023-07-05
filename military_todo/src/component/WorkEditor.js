@@ -15,6 +15,12 @@ const WorkEditor = ({onCreate}) => {
         }
         onCreate(name);
     }
+    const handleKeyDown = (event) => {
+        if (event.keyCode === 13)
+        {
+            onSubmit();
+        }
+    }
 
     return (
         <div className = "WorkEditor">
@@ -25,6 +31,7 @@ const WorkEditor = ({onCreate}) => {
                     value = {name} 
                     onChange={onNameChange}
                     placeholder="하.. 새로운 작업..ㅠ"
+                    onKeyDown={handleKeyDown}
                 />
                 <button onClick = {onSubmit}>추가</button>
             </div>
