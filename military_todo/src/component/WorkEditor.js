@@ -14,6 +14,7 @@ const WorkEditor = ({onCreate}) => {
             return;
         }
         onCreate(name);
+        setName("");
     }
     const handleKeyDown = (event) => {
         if (event.keyCode === 13)
