@@ -64,11 +64,29 @@ function App() {
     setWork([...work,newItem]);
     idRef.current += 1; 
   }
+  const onUpdate = (workId) => {
+    let tempWork = [];
+    for (let i = 0; i < work.length; i++)
+    {
+      if (workId === work[i].id) 
+      {
+        tempWork.push({
+          id : work[i].id,
+          name : work[i].name,
+          createdDate : work[i].createdDate,
+          isDone : !work[i].isDone
+        })
+      } else {
+        tempWork.push(work[i]);
+      }
+    }
+    setWork(tempWork); 
+  }
   return (
     <div className="App">
       <Header/>
       <WorkEditor onCreate = {onCreate}/>      
-      <WorkList work = {work} onDelete = {onDelete}/>
+      <WorkList work = {work} onDelete = {onDelete} onUpdate={onUpdate}/>
     </div>
   );
 }

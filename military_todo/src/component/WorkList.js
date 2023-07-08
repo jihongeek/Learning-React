@@ -2,7 +2,7 @@ import "./WorkList.css"
 import WorkItem from "./WorkItem"
 import {useState} from "react"
 
-const WorkList = ({work,onDelete}) => {
+const WorkList = ({work,onDelete,onUpdate}) => {
     const [queryData,setQueryData] = useState("");
     const onInputChange = (event) => {
       setQueryData(event.target.value);      
@@ -16,7 +16,7 @@ const WorkList = ({work,onDelete}) => {
             {work.map((it) => {
               if (it.name.includes(queryData))
               {
-                return <WorkItem key = {it.id} {...it} onDelete={onDelete}/>;
+                return <WorkItem key = {it.id} {...it} onDelete={onDelete} onUpdate={onUpdate}/>;
               } 
               return null;
             })}
